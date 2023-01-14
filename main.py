@@ -16,7 +16,7 @@ i2c1 = I2C(1, sda=machine.Pin(18), scl=machine.Pin(19), freq=400000)
 lcd = I2cLcd(i2c0, I2C_ADDR, I2C_NUM_ROWS, I2C_NUM_COLS)
 bme = bme280.BME280(i2c=i2c1)
 
-def writeLikeHuman(str):
+def typeMachine(str):
     split = list(str)
     for letter in split:
         lcd.putstr(letter)
@@ -25,7 +25,7 @@ def writeLikeHuman(str):
 # Weather station init
 lcd.clear()
 lcd.hide_cursor()
-writeLikeHuman('Weather station 1.0')
+typeMachine('Weather station 1.0')
 utime.sleep(2)
         
 # Infinite loop
